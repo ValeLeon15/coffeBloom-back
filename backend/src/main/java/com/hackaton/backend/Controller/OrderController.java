@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hackaton.backend.Entity.Order;
+import com.hackaton.backend.Entity.purchase_Order;
 import com.hackaton.backend.Service.OrderService;
 
 @RestController
@@ -26,19 +26,19 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<Order> getAll() {
+    public List<purchase_Order> getAll() {
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getById(@PathVariable Long id) {
+    public ResponseEntity<purchase_Order> getById(@PathVariable Long id) {
         return service.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Order create(@RequestBody Order order) {
+    public purchase_Order create(@RequestBody purchase_Order order) {
         return service.save(order);
     }
 
@@ -48,14 +48,11 @@ public class OrderController {
     }
 
     @GetMapping("/buyer/{buyerId}")
-    public List<Order> byBuyer(@PathVariable Long buyerId) {
+    public List<purchase_Order> byBuyer(@PathVariable Long buyerId) {
         return service.getByBuyer(buyerId);
     }
 
-    @GetMapping("/listing/{listingId}")
-    public List<Order> byListing(@PathVariable Long listingId) {
-        return service.getByListing(listingId);
-    }
+    
 
     @GetMapping("/payment/{id}")
     public void payent(@PathVariable Long id) {

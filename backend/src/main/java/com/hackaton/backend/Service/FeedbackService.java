@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.hackaton.backend.Entity.Feedback;
-import com.hackaton.backend.Entity.Order;
+import com.hackaton.backend.Entity.purchase_Order;
 import com.hackaton.backend.Entity.PlatformUser;
 import com.hackaton.backend.Repository.FeedbackRepository;
 import com.hackaton.backend.Repository.OrderRepository;
@@ -43,7 +43,7 @@ public class FeedbackService {
 
     public Feedback save(Feedback feedback) {
 
-        Order order = orderrepo.findById(feedback.getOrder().getId())
+        purchase_Order order = orderrepo.findById(feedback.getOrder().getId())
         .orElseThrow(()-> new RuntimeException("Order wasn't found"));
 
         PlatformUser user = userrepo.findById(feedback.getUser().getId())

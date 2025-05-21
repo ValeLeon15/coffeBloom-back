@@ -16,7 +16,7 @@ public class Feedback {
     private Integer rating;
 
     @ManyToOne
-    private Order order;
+    private purchase_Order order;
 
     @ManyToOne
     private PlatformUser user;
@@ -45,11 +45,11 @@ public class Feedback {
         this.rating = rating;
     }
 
-    public Order getOrder() {
+    public purchase_Order getOrder() {
         return order;
     }
 
-    public void setOrder(Order order) {
+    public void setOrder(purchase_Order order) {
         this.order = order;
     }
 
@@ -64,7 +64,7 @@ public class Feedback {
     public Feedback() {
     }
 
-    public Feedback(Long id, String comment, Integer rating, Order order, PlatformUser user) {
+    public Feedback(Long id, String comment, Integer rating, purchase_Order order, PlatformUser user) {
         this.id = id;
         this.comment = comment;
         this.rating = rating;
